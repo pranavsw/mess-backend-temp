@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - DB_HOST=mysql
+      - DB_USER=root
+      - DB_PASSWORD=viswa2005
+      - DB_NAME=testing
+      - SECRET_KEY=your_secret_key_here  # Replace with your actual secret key
+    depends_on:
+      - mysql
+    networks:
+      - app-network
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: viswa2005
+      MYSQL_DATABASE: testing
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./mysql-init/init.sql:/docker-entrypoint-initdb.d  # Mount the init.sql file
+    networks:
+      - app-network
+
+networks:
+  app-network:
+
+volumes:
+  db_data:

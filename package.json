@@ -1,0 +1,23 @@
+{
+  "name": "mess-scanner-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.9.1",
+    "sequelize": "^6.36.0",
+    "sha1-hash-and-verify": "^1.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
